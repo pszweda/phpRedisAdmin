@@ -10,7 +10,7 @@ if($redis) {
         $next = 0;
         $keys = array();
 
-        while (count($keys) <= 1000) {
+        while (true) {
             $r = $redis->scan($next, 'MATCH', $server['filter'], 'COUNT', $server['scansize']);
 
             $next = $r[0];
