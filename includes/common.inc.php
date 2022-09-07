@@ -80,7 +80,7 @@ if (!isset($server['db'])) {
 
 
 if (!isset($server['filter'])) {
-  $server['filter'] = '';
+  $server['filter'] = '*search_key_name*';
 }
 
 // filter from GET param
