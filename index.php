@@ -10,7 +10,7 @@ if($redis) {
         $next = 0;
         $keys = array();
 
-        while (true) {
+        while (count($keys) <= 1000) {
             $r = $redis->scan($next, 'MATCH', $server['filter'], 'COUNT', $server['scansize']);
 
             $next = $r[0];
@@ -232,7 +232,7 @@ if ($databases > 1) { ?>
 <a href="?flush&amp;s=<?php echo $server['id']?>&amp;d=<?php echo $server['db']?>" id="flush"><img src="images/flush.png" width="16" height="16" title="Flush" alt="[F]"></a>
 <?php } ?>
 </p>
-
+<p><strong>SHOWING MAX 1000 KEYS</strong></p>
 <p>
 <a href="?edit&amp;s=<?php echo $server['id']?>&amp;d=<?php echo $server['db']?>" class="add">Add another key</a>
 </p>

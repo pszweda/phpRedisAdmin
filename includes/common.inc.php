@@ -74,21 +74,18 @@ if (!isset($server['db'])) {
   if (isset($_GET['d']) && is_numeric($_GET['d'])) {
     $server['db'] = $_GET['d'];
   } else {
-    $server['db'] = 0;
+    $server['db'] = 1;
   }
 }
 
 
 if (!isset($server['filter'])) {
-  $server['filter'] = '*';
+  $server['filter'] = '';
 }
 
 // filter from GET param
 if (isset($_GET['filter']) && $_GET['filter'] != '') {
     $server['filter'] = $_GET['filter'];
-    if (strpos($server['filter'], '*') === false) {
-      $server['filter'].= '*';
-    }
 }
 
 if (!isset($server['seperator'])) {
